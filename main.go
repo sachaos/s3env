@@ -8,10 +8,10 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/alexsasharegan/dotenv"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
+	"github.com/sachaos/godotenv"
 	"github.com/urfave/cli"
 )
 
@@ -38,7 +38,7 @@ func LoadS3() (err error) {
 	}
 	io.Copy(f, r)
 
-	if err = dotenv.Load(f.Name()); err != nil {
+	if err = godotenv.Load(f.Name()); err != nil {
 		return
 	}
 

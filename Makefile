@@ -16,4 +16,4 @@ build:
 
 .PHONY: release
 release:
-	ghr -u $(GITHUB_USERNAME) -t $(shell cat github_token) ${VERSION} $(ARTIFACTS_DIR)
+	ghr -u $(GITHUB_USERNAME) -t $(shell cat github_token) --replace ${VERSION} $(ARTIFACTS_DIR)

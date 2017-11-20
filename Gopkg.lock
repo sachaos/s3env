@@ -19,10 +19,10 @@
   revision = "0b12d6b5"
 
 [[projects]]
+  branch = "feature-expand-variables-on-value"
   name = "github.com/sachaos/godotenv"
   packages = ["."]
-  revision = "a79fa1e548e2c689c241d10173efd51e5d689d5b"
-  version = "v1.2.0"
+  revision = "2707e9ff66c3758b5e7342e3ee72dd183aba7aef"
 
 [[projects]]
   name = "github.com/urfave/cli"
@@ -33,6 +33,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "ac9657972eb58f11980fea7d3882f0fb44ccae4cc2c4caf9784646810bcf8fad"
+  inputs-digest = "293b20e9c0f616d128a83740b6a0dbe017752ca7879f3bb63d369ab9c906eb57"
   solver-name = "gps-cdcl"
   solver-version = 1

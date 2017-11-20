@@ -53,6 +53,6 @@ irb(main):001:0> ENV["ENABLE_DEBUG_MODE"]
 
 ## Inspired by
 
-[the40san/dotenv-s3: load your dotenv from s3](https://github.com/the40san/dotenv-s3)
-[timakin/ssm2env: Environments injection tool for AWS EC2, with SSM (EC2 Parameter Store).](https://github.com/timakin/ssm2env)
-[okzk/env-injector](https://github.com/okzk/env-injector)
+* [the40san/dotenv-s3: load your dotenv from s3](https://github.com/the40san/dotenv-s3)
+* [timakin/ssm2env: Environments injection tool for AWS EC2, with SSM (EC2 Parameter Store).](https://github.com/timakin/ssm2env)
+* [okzk/env-injector](https://github.com/okzk/env-injector)

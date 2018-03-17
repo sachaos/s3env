@@ -3,7 +3,33 @@
 
 [[projects]]
   name = "github.com/aws/aws-sdk-go"
-  packages = ["aws","aws/awserr","aws/awsutil","aws/client","aws/client/metadata","aws/corehandlers","aws/credentials","aws/credentials/ec2rolecreds","aws/credentials/endpointcreds","aws/credentials/stscreds","aws/defaults","aws/ec2metadata","aws/endpoints","aws/request","aws/session","aws/signer/v4","internal/shareddefaults","private/protocol","private/protocol/query","private/protocol/query/queryutil","private/protocol/rest","private/protocol/restxml","private/protocol/xml/xmlutil","service/s3","service/sts"]
+  packages = [
+    "aws",
+    "aws/awserr",
+    "aws/awsutil",
+    "aws/client",
+    "aws/client/metadata",
+    "aws/corehandlers",
+    "aws/credentials",
+    "aws/credentials/ec2rolecreds",
+    "aws/credentials/endpointcreds",
+    "aws/credentials/stscreds",
+    "aws/defaults",
+    "aws/ec2metadata",
+    "aws/endpoints",
+    "aws/request",
+    "aws/session",
+    "aws/signer/v4",
+    "internal/shareddefaults",
+    "private/protocol",
+    "private/protocol/query",
+    "private/protocol/query/queryutil",
+    "private/protocol/rest",
+    "private/protocol/restxml",
+    "private/protocol/xml/xmlutil",
+    "service/s3",
+    "service/sts"
+  ]
   revision = "e4f7e38b704e3ed0acc4a7f8196b777696f6f1f3"
   version = "v1.12.30"
 
@@ -19,10 +45,10 @@
   revision = "0b12d6b5"
 
 [[projects]]
-  branch = "feature-expand-variables-on-value"
-  name = "github.com/sachaos/godotenv"
+  branch = "master"
+  name = "github.com/joho/godotenv"
   packages = ["."]
-  revision = "2707e9ff66c3758b5e7342e3ee72dd183aba7aef"
+  revision = "6bb08516677f8c8274c557fc801bee9ab564ab2c"
 
 [[projects]]
   name = "github.com/urfave/cli"
@@ -33,6 +59,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "293b20e9c0f616d128a83740b6a0dbe017752ca7879f3bb63d369ab9c906eb57"
+  inputs-digest = "011f9cb15194d1fb65236e2446400082506f29187ef2ed005e037f9d76b83547"
   solver-name = "gps-cdcl"
   solver-version = 1

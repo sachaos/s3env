@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/base64"
+	"errors"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -45,7 +46,34 @@ func LoadS3() (err error) {
 	return
 }
 
+func runCmdStartPosition(args []string) (int, error) {
+	for i, arg := range args {
+		if arg == "run" {
+			return i, nil
+		}
+	}
+	return 0, errors.New("run command not found")
+}
+
+func handleRunCmd(args []string) {
+	if len(args) <= 1 {
+		fmt.Fprintln(os.Stderr, "Error:", "run command require command argument to run")
+		os.Exit(1)
+	}
+
+	if err := CmdRun(args[1:]); err != nil {
+		fmt.Fprintln(os.Stderr, "Error:", err)
+		os.Exit(1)
+		return
+	}
+	os.Exit(0)
+}
+
 func main() {
+	if idx, err := runCmdStartPosition(os.Args); err == nil {
+		handleRunCmd(os.Args[idx:])
+	}
+
 	app := cli.NewApp()
 	app.Name = "s3env"
 	app.Usage = "Load environment variable from AWS S3"

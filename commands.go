@@ -16,8 +16,7 @@ var Commands = []cli.Command{
 		},
 	},
 	{
-		Name:   "run",
-		Usage:  "Execute command with loaded environment variables",
-		Action: CmdRun,
+		Name:  "run",
+		Usage: "Execute command with loaded environment variables",
 	},
 }

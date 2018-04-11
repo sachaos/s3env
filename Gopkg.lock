@@ -48,7 +48,7 @@
   branch = "master"
   name = "github.com/joho/godotenv"
   packages = ["."]
-  revision = "6bb08516677f8c8274c557fc801bee9ab564ab2c"
+  revision = "1709ab122c988931ad53508747b3c061400c2984"
 
 [[projects]]
   name = "github.com/urfave/cli"

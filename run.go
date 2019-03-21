@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"os/exec"
+	"os/signal"
 )
 
 func CmdRun(args []string) (err error) {
@@ -15,5 +16,21 @@ func CmdRun(args []string) (err error) {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
-	return cmd.Run()
+	signals := make(chan os.Signal, 1)
+	signal.Notify(signals)
+
+	err = cmd.Start()
+	if err != nil {
+		return err
+	}
+
+	go func() {
+		s := <- signals
+		err := cmd.Process.Signal(s)
+		if err != nil {
+			panic(err)
+		}
+	}()
+
+	return cmd.Wait()
 }

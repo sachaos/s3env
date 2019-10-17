@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 
 	"github.com/aws/aws-sdk-go/aws"
@@ -16,7 +15,7 @@ import (
 	"github.com/urfave/cli"
 )
 
-func LoadS3() (err error) {
+func LoadS3() (map[string]string, error) {
 	sess := session.Must(session.NewSession())
 	svc := s3.New(sess)
 
@@ -27,24 +26,16 @@ func LoadS3() (err error) {
 		Key:    aws.String(os.Getenv("S3ENV_KEY_NAME")),
 	})
 	if err != nil {
-		return
+		return nil, err
 	}
-
-	f, err := ioutil.TempFile("", "dotenv")
-	defer f.Close()
 
 	var r io.Reader
 	r = result.Body
 	if os.Getenv("S3ENV_BASE64ENCODE") == "y" {
 		r = base64.NewDecoder(base64.StdEncoding, result.Body)
 	}
-	io.Copy(f, r)
 
-	if err = godotenv.Load(f.Name()); err != nil {
-		return
-	}
-
-	return
+	return godotenv.Parse(r)
 }
 
 func runCmdStartPosition(args []string) (int, error) {

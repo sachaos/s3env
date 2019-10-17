@@ -7,8 +7,13 @@ import (
 )
 
 func CmdRun(args []string) (err error) {
-	if err = LoadS3(); err != nil {
+	envMap, err := LoadS3()
+	if err != nil {
 		return
+	}
+
+	for k, v := range envMap {
+		os.Setenv(k, v)
 	}
 
 	path, err := exec.LookPath(args[0])

@@ -31,6 +31,7 @@ func LoadS3() (err error) {
 	}
 
 	f, err := ioutil.TempFile("", "dotenv")
+	defer f.Close()
 
 	var r io.Reader
 	r = result.Body
